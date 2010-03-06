@@ -1,11 +1,11 @@
-Twig renderer for Yii
-=====================
+Twig view renderer
+==================
 
 This extension allows you to use [Twig](http://www.twig-project.org/) templates in Yii.
 
 ###Resources
-* [SVN](http://code.google.com/p/yiiext/source/browse/#svn/trunk/app/extensions/CTwigViewRenderer)
-* [Twig](http://www.twig-project.org/)
+* [SVN](http://code.google.com/p/yiiext/source/browse/)
+* [Twig](http://code.google.com/p/yiiext/source/browse/trunk/app/extensions#extensions/yiiext/renderers/twig)
 * [Discuss](http://www.yiiframework.com/forum/index.php?/topic/4919-twig-view-renderer/)
 * [Report a bug](http://code.google.com/p/yiiext/issues/list)
 
@@ -19,7 +19,7 @@ This extension allows you to use [Twig](http://www.twig-project.org/) templates 
 ~~~
 [php]
  'viewRenderer'=>array(
-     'class'=>'application.extensions.CTwigViewRenderer.CTwigViewRenderer',
+     'class'=>'ext.yiiext.renderers.twig.ETwigViewRenderer',
      'fileExtension' => '.html',
   ),
 ~~~

@@ -1,14 +1,14 @@
 <?php
 /**
- * Twig renderer for Yii
+ * Twig view renderer
  *
  * @author Alexander Makarov <sam@rmcreative.ru>
  * @link http://code.google.com/p/yiiext/
  * @link http://www.twig-project.org/
  *
- * @version 0.9.1
+ * @version 0.9.2
  */
-class CTwigViewRenderer extends CApplicationComponent implements IViewRenderer {
+class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer {
     public $fileExtension='.html';
 
     private $twig;
@@ -52,7 +52,7 @@ class CTwigViewRenderer extends CApplicationComponent implements IViewRenderer {
 
         // check if view file exists
         if(!is_file($sourceFile) || ($file=realpath($sourceFile))===false)
-            throw new CException(Yii::t('yii','View file "{file}" does not exist.', array('{file}'=>$sourceFile)));
+            throw new CException(Yii::t('yiiext','View file "{file}" does not exist.', array('{file}'=>$sourceFile)));
 
 	$sourceFile = substr($sourceFile, strlen(Yii::app()->getBasePath()));
         $template = $this->twig->loadTemplate($sourceFile);

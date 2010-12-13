@@ -54,9 +54,12 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer {
         if(!is_file($sourceFile) || ($file=realpath($sourceFile))===false)
             throw new CException(Yii::t('yiiext','View file "{file}" does not exist.', array('{file}'=>$sourceFile)));
 
-	$sourceFile = substr($sourceFile, strlen(Yii::app()->getBasePath()));
+		$sourceFile = substr($sourceFile, strlen(Yii::app()->getBasePath()));
         $template = $this->twig->loadTemplate($sourceFile);
 
-        return $template->render($data);
+		if($return)
+			return $template->render($data);
+		else
+			echo $template->render($data);
 	}
 }

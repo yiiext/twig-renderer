@@ -1,6 +1,7 @@
 next
 ----
 - Fixed renderFile method (AlexandrZ, Sam Dark)
+- Extension is now theme-aware (zadoev, Sam Dark)
 
 0.9.2
 -----

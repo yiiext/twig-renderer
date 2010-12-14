@@ -6,7 +6,7 @@
  * @link http://code.google.com/p/yiiext/
  * @link http://www.twig-project.org/
  *
- * @version 0.9.2
+ * @version next
  */
 class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer {
     public $fileExtension='.html';
@@ -33,7 +33,7 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer {
         $cache_path = Yii::app()->getRuntimePath().DIRECTORY_SEPARATOR.'views_twig'.DIRECTORY_SEPARATOR;
 
         // here we are using twig loader
-        $loader = new Twig_Loader_Filesystem(Yii::app()->getBasePath());
+        $loader = new Twig_Loader_Filesystem($this->getBasePath());
         $this->twig = new Twig_Environment($loader, array('cache'=>$cache_path, 'auto_reload'=>true));
     }
 
@@ -54,12 +54,24 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer {
         if(!is_file($sourceFile) || ($file=realpath($sourceFile))===false)
             throw new CException(Yii::t('yiiext','View file "{file}" does not exist.', array('{file}'=>$sourceFile)));
 
-		$sourceFile = substr($sourceFile, strlen(Yii::app()->getBasePath()));
+		$sourceFile = substr($sourceFile, strlen($this->getBasePath()));
         $template = $this->twig->loadTemplate($sourceFile);
 
 		if($return)
 			return $template->render($data);
 		else
 			echo $template->render($data);
+	}
+
+	/**
+	 * Theme-aware basepath
+	 * @return string
+	 */
+	protected function getBasePath()
+	{
+		if(Yii::app()->theme == null)
+			return Yii::app()->getBasePath();
+
+		return Yii::app()->theme->getBasePath();
 	}
 }

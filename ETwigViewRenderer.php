@@ -6,7 +6,7 @@
  * @link http://code.google.com/p/yiiext/
  * @link http://www.twig-project.org/
  *
- * @version next
+ * @version 0.9.3
  */
 class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer {
     public $fileExtension='.html';

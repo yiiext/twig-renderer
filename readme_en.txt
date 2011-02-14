@@ -21,6 +21,12 @@ This extension allows you to use [Twig](http://www.twig-project.org/) templates 
  'viewRenderer'=>array(
      'class'=>'ext.yiiext.renderers.twig.ETwigViewRenderer',
      'fileExtension' => '.html',
+     'options' => array(
+     	'autoescape' => true,
+     ),
+     'extentions' => array(
+		'My_Twig_Extension',
+	 ),
   ),
 ~~~
 

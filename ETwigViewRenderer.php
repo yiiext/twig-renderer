@@ -6,10 +6,21 @@
  * @link http://code.google.com/p/yiiext/
  * @link http://www.twig-project.org/
  *
- * @version 0.9.3
+ * @version 0.9.4
  */
 class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer {
     public $fileExtension='.html';
+
+	/**
+	 * @var array Twig environment options
+	 * @see http://www.twig-project.org/doc/api.html#environment-options	 *
+	 */
+	public $options = array();
+
+	/**
+	 * @var array extension classes list
+	 */
+	public $extentions = array();
 
     private $twig;
 
@@ -17,6 +28,9 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer {
      * Component initialization
      */
     function init(){
+		if(empty($this->options['charset']))
+			$this->options['charset'] = Yii::app()->charset;
+
         Yii::import('application.vendors.*');
 
         // need this since Yii autoload handler raises an error if class is not found
@@ -30,11 +44,20 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer {
         spl_autoload_register(array('YiiBase','autoload'));
 
         // setting cache path to application runtime directory
-        $cache_path = Yii::app()->getRuntimePath().DIRECTORY_SEPARATOR.'views_twig'.DIRECTORY_SEPARATOR;
+		if(empty($this->options['cache']))
+        	$this->options['cache'] = Yii::app()->getRuntimePath().DIRECTORY_SEPARATOR.'views_twig'.DIRECTORY_SEPARATOR;
 
         // here we are using twig loader
         $loader = new Twig_Loader_Filesystem($this->getBasePath());
-        $this->twig = new Twig_Environment($loader, array('cache'=>$cache_path, 'auto_reload'=>true));
+        $this->twig = new Twig_Environment($loader, $this->options);
+
+        // Load twig extentions
+		if(!empty($this->extentions)){
+			foreach($this->extentions as $extName){
+                $this->twig->addExtension(new $extName());
+			}
+    	}
+
     }
 
     /**

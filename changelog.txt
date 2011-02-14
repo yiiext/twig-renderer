@@ -1,3 +1,8 @@
+0.9.4
+-----
+- Added an ability to set Twig environment options (Sam Dark)
+- Added an ability to load extensions (Roman, Sam Dark)
+
 0.9.3
 -----
 - Fixed renderFile method (AlexandrZ, Sam Dark)

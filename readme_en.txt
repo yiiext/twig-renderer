@@ -16,6 +16,7 @@ This extension allows you to use [Twig](http://www.twig-project.org/) templates 
 * Extract the release file under `protected/extensions`.
 * [Download](http://www.twig-project.org/installation) and extract all Twig files from `fabpot-Twig-______.zip\fabpot-Twig-______\lib\Twig\` under `protected/vendors/Twig`.
 * Add the following to your config file 'components' section:
+
 ~~~
 [php]
  'viewRenderer'=>array(

@@ -1,3 +1,8 @@
+0.9.5
+-----
+- Added C, Yii, app vars (Sapphiriq)
+- Fixed cache = false in twig options (Spartakus)
+
 0.9.4
 -----
 - Added an ability to set Twig environment options (Sam Dark)

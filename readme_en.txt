@@ -23,7 +23,7 @@ This extension allows you to use [Twig](http://www.twig-project.org/) templates 
      'class'=>'ext.yiiext.renderers.twig.ETwigViewRenderer',
      'fileExtension' => '.html',
      'options' => array(
-     	'autoescape' => true,
+     	//'autoescape' => true,
      ),
      'extentions' => array(
 		'My_Twig_Extension',
@@ -34,3 +34,5 @@ This extension allows you to use [Twig](http://www.twig-project.org/) templates 
 ###Usage
 * See [Twig syntax](http://www.twig-project.org/book/02-Twig-for-Template-Designers).
 * Current controller properties are accessible via {{this.pageTitle}}.
+* Core class Yii (for example, CHtml) {{C.ClassName.Method}} ( {{ C.Html.textField(name,'value')|raw }} )
+* Yii::app() - {{ app }}, Yii::t() - {{Yii.t()}}

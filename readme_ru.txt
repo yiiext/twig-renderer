@@ -23,7 +23,7 @@
      'class'=>'ext.yiiext.renderers.twig.ETwigViewRenderer',
      'fileExtension' => '.html',
      'options' => array(
-     	'autoescape' => true,
+     	//'autoescape' => true,
      ),
      'extentions' => array(
 		'My_Twig_Extension',
@@ -34,3 +34,5 @@
 ###Использование
 * См. [синтаксис Twig](http://www.twig-project.org/book/02-Twig-for-Template-Designers).
 * Свойства текущего контроллера доступны как {{this.pageTitle}}.
+* Core классы Yii (Например, CHtml) {{C.ClassName.Method}} ( {{ C.Html.textField(name,'value')|raw }} )
+* Yii::app() - {{ app }}, Yii::t() - {{Yii.t()}}

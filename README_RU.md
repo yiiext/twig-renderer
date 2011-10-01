@@ -54,3 +54,18 @@
 * См. [синтаксис Twig](http://twig.sensiolabs.org/doc/templates.html).
 * Свойства текущего контроллера доступны как {{this.pageTitle}}.
 * Объект приложения Yii::app() доступен как {{App}}.
+
+###Пример использования виджета
+```html
+<div id="mainmenu">
+    {{ this.widget('zii.widgets.CMenu',{
+        'items':[
+            {'label':'Home', 'url':['/site/index']},
+            {'label':'About', 'url':{0:'/site/page', 'view':'about'} },
+            {'label':'Contact', 'url':['/site/contact']},
+            {'label':'Login', 'url':['/site/login'], 'visible':App.user.isGuest},
+            {'label':'Logout ('~App.user.name~')', 'url':['/site/logout'], 'visible':not App.user.isGuest}
+        ]
+    }, true) }}
+</div><!-- mainmenu -->
+```

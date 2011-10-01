@@ -53,3 +53,18 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
 * See [Twig syntax](http://twig.sensiolabs.org/doc/templates.html).
 * Current controller properties are accessible via {{this.pageTitle}}.
 * Yii::app() object is accessible via {{App}}.
+
+###Widgets usage example
+```html
+<div id="mainmenu">
+    {{ this.widget('zii.widgets.CMenu',{
+        'items':[
+            {'label':'Home', 'url':['/site/index']},
+            {'label':'About', 'url':{0:'/site/page', 'view':'about'} },
+            {'label':'Contact', 'url':['/site/contact']},
+            {'label':'Login', 'url':['/site/login'], 'visible':App.user.isGuest},
+            {'label':'Logout ('~App.user.name~')', 'url':['/site/logout'], 'visible':not App.user.isGuest}
+        ]
+    }, true) }}
+</div><!-- mainmenu -->
+```

@@ -5,7 +5,7 @@
  * @author Leonid Svyatov <leonid@svyatov.ru>
  * @author Alexander Makarov <sam@rmcreative.ru>
  * @link http://github.com/yiiext/twig-renderer
- * @link http://www.twig-project.org
+ * @link http://twig.sensiolabs.org
  *
  * @version 1.1.0
  */

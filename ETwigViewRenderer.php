@@ -7,7 +7,7 @@
  * @link http://code.google.com/p/yiiext/
  * @link http://www.twig-project.org/
  *
- * @version 0.9.4
+ * @version 0.9.5
  */
 class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer {
 
@@ -73,7 +73,7 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer {
         // current controller properties will be accessible as {{this.property}}
         $data['this'] = $context;
         $data['Yii'] = new YiiStatic();
-        $data['app'] = Yii::app(); // для более быстрого доступа
+        $data['app'] = Yii::app(); // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         $data['C'] = new twigC();
 
         // check if view file exists

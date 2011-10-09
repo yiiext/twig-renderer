@@ -54,6 +54,7 @@
 * См. [синтаксис Twig](http://twig.sensiolabs.org/doc/templates.html).
 * Свойства текущего контроллера доступны как {{this.pageTitle}}.
 * Объект приложения Yii::app() доступен как {{App}}.
+* Базовые статические классы Yii (например, CHtml) доступны как {{C.ClassNameWithoutFirstC.Method}} (пример: {{C.Html.textField(name,'value')}})
 
 ###Пример использования виджета
 ```html

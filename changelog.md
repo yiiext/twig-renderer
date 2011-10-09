@@ -1,3 +1,10 @@
+1.1.1
+-----
+- Added global 'C' variable from v0.9.5 for accessing Yii core static classes (Leonid Svyatov)
+- Added new class 'ETwigViewRendererYiiCoreStaticClassesProxy' to provide global 'C' variable feature (Leonid Svyatov)
+- Removed hard-coded global 'Yii' variable from v0.9.5 (it could be done by using 'globals' option) (Leonid Svyatov)
+- Removed unnecessary now classes: 'YiiStatic', 'twigC' and 'twigCObj' (Leonid Svyatov)
+
 1.1.0
 -----
 - Added an ability to add Twig globals (objects and static classes) (Leonid Svyatov)
@@ -13,6 +20,11 @@
 - Changed all links in READMEs to point at GitHub (Leonid Svyatov)
 - Fixed all markdown in all files for better look in GitHub (Leonid Svyatov)
 - Actualized all links to Twig (Leonid Svyatov)
+
+0.9.5
+-----
+- Added C, Yii, app vars (Sapphiriq)
+- Fixed cache = false in twig options (Spartakus)
 
 0.9.4
 -----

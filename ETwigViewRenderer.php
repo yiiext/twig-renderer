@@ -7,7 +7,7 @@
  * @link http://github.com/yiiext/twig-renderer
  * @link http://twig.sensiolabs.org
  *
- * @version 1.1.0
+ * @version 1.1.1
  */
 class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
 {
@@ -96,6 +96,9 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
 
         // Adding Yii::app() object to globals
         $this->_twig->addGlobal('App', $app);
+
+        // Adding Yii's core static classes proxy as 'C' shortcut (usage: {{C.Html.tag(...)}})
+        $this->_twig->addGlobal('C', new ETwigViewRendererYiiCoreStaticClassesProxy());
 
         // Adding custom globals (objects or static classes)
         if (!empty($this->globals)) {
@@ -271,4 +274,30 @@ class ETwigViewRendererStaticClassProxy
     {
         return call_user_func_array(array($this->_staticClassName, $method), $arguments);
     }
+}
+
+/**
+ * Class-proxy for Yii core static classes
+ *
+ * @author Leonid Svyatov <leonid@svyatov.ru>
+ * @version 1.0.0
+ */
+class ETwigViewRendererYiiCoreStaticClassesProxy
+{
+    private $_classes = array();
+
+    function __isset($className)
+    {
+        return (isset($_classes[$className]) || class_exists('C'.$className));
+    }
+
+    function __get($className)
+    {
+        if (!isset($this->_classes[$className])) {
+            $this->_classes[$className] = new ETwigViewRendererStaticClassProxy('C'.$className);
+        }
+
+        return $this->_classes[$className];
+    }
+
 }

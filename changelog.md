@@ -1,3 +1,7 @@
+1.1.2
+-----
+- Added global 'void' function to make possible to call functions and methods which return non-string result (Leonid Svyatov)
+
 1.1.1
 -----
 - Added global 'C' variable from v0.9.5 for accessing Yii core static classes (Leonid Svyatov)

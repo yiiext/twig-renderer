@@ -54,6 +54,7 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
 * Current controller properties are accessible via {{this.pageTitle}}.
 * Yii::app() object is accessible via {{App}}.
 * Yii's core static classes (for example, CHtml) are accessible via {{C.ClassNameWithoutFirstC.Method}} (example: {{C.Html.textField(name,'value')}})
+* To call functions or methods which return non-string result wrap these calls with 'void' function: {{void(App.clientScript.registerScriptFile(...))}}
 
 ###Widgets usage example
 ```html

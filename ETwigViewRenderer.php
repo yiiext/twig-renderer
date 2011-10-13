@@ -7,7 +7,7 @@
  * @link http://github.com/yiiext/twig-renderer
  * @link http://twig.sensiolabs.org
  *
- * @version 1.1.1
+ * @version 1.1.2
  */
 class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
 {
@@ -99,6 +99,10 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
 
         // Adding Yii's core static classes proxy as 'C' shortcut (usage: {{C.Html.tag(...)}})
         $this->_twig->addGlobal('C', new ETwigViewRendererYiiCoreStaticClassesProxy());
+
+        // Adding global 'void' function (usage: {{void(App.clientScript.registerScriptFile(...))}})
+        // (@see ETwigViewRendererVoidFunction below for details)
+        $this->_twig->addFunction('void', new Twig_Function_Function('ETwigViewRendererVoidFunction'));
 
         // Adding custom globals (objects or static classes)
         if (!empty($this->globals)) {
@@ -300,4 +304,17 @@ class ETwigViewRendererYiiCoreStaticClassesProxy
         return $this->_classes[$className];
     }
 
+}
+
+/**
+ * Function for adding global 'void' function in Twig
+ * Needed to make possible to call functions and methods which return non-string result (object, resources and etc.)
+ * For example: {{ void(App.clientScript.registerScriptFile(...)) }}
+ *
+ * @param mixed $argument
+ * @return string
+ */
+function ETwigViewRendererVoidFunction($argument)
+{
+    return '';
 }

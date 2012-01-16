@@ -28,7 +28,7 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
         'options' => array(
             'autoescape' => true,
         ),
-        'extentions' => array(
+        'extensions' => array(
             'My_Twig_Extension',
         ),
         'globals' => array(

@@ -29,7 +29,7 @@
         'options' => array(
             'autoescape' => true,
         ),
-        'extentions' => array(
+        'extensions' => array(
             'My_Twig_Extension',
         ),
         'globals' => array(

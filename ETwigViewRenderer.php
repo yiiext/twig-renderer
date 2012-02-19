@@ -74,7 +74,7 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
         $app = Yii::app();
 
         /** @var $theme CTheme */
-        $theme = $app->getComponent('theme');
+        $theme = $app->getTheme();
 
         if ($theme === null) {
             $this->_basePath = $app->getBasePath();

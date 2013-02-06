@@ -1,3 +1,8 @@
+1.1.3
+-----
+
+- #10: PHP 5.2 compatibility (resurtm)
+
 1.1.2
 -----
 - Added global 'void' function to make possible to call functions and methods which return non-string result (Leonid Svyatov)

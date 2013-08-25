@@ -63,7 +63,6 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
     public $lexerOptions = array();
 
     private $_twig;
-    private $_basePath;
     private $_paths;
 
     function init()

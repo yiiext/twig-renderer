@@ -14,7 +14,7 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
 
 ###Installation
 
-####Manual
+####Installing manually
 
 * Extract the release file under `protected/extensions`.
 * [Download](http://twig.sensiolabs.org/installation) and extract all Twig files from `fabpot-Twig-______.zip\fabpot-Twig-______\lib\Twig\` under `protected/vendors/Twig`.
@@ -52,7 +52,7 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
   ),
 ```
 
-####Via Composer
+####Installing via Composer
 
 * Get [Composer](http://getcomposer.org/)
 * Create file protected/composer.json if absent:

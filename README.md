@@ -13,6 +13,9 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
 * Yii 1.0 or above
 
 ###Installation
+
+####Manual
+
 * Extract the release file under `protected/extensions`.
 * [Download](http://twig.sensiolabs.org/installation) and extract all Twig files from `fabpot-Twig-______.zip\fabpot-Twig-______\lib\Twig\` under `protected/vendors/Twig`.
 * Add the following to your config file 'components' section:
@@ -20,33 +23,102 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
 ```php
 <?php
 
-    'viewRenderer' => array(
-        'class' => 'ext.ETwigViewRenderer',
+  'viewRenderer' => array(
+      'class' => 'ext.ETwigViewRenderer',
 
-        // All parameters below are optional, change them to your needs
-        'fileExtension' => '.twig',
-        'options' => array(
-            'autoescape' => true,
-        ),
-        'extensions' => array(
-            'My_Twig_Extension',
-        ),
-        'globals' => array(
-            'html' => 'CHtml'
-        ),
-        'functions' => array(
-            'rot13' => 'str_rot13',
-        ),
-        'filters' => array(
-            'jencode' => 'CJSON::encode',
-        ),
-        // Change template syntax to Smarty-like (not recommended)
-        'lexerOptions' => array(
-            'tag_comment'  => array('{*', '*}'),
-            'tag_block'    => array('{', '}'),
-            'tag_variable' => array('{$', '}')
-        ),
-    ),
+      // Uncomment the following line if twig installed via Composer
+      //'twigPathAlias' => 'application.vendor.twig.twig.lib.Twig',
+
+      // All parameters below are optional, change them to your needs
+      'fileExtension' => '.twig',
+      'options' => array(
+          'autoescape' => true,
+      ),
+      'extensions' => array(
+          'My_Twig_Extension',
+      ),
+      'globals' => array(
+          'html' => 'CHtml'
+      ),
+      'functions' => array(
+          'rot13' => 'str_rot13',
+      ),
+      'filters' => array(
+          'jencode' => 'CJSON::encode',
+      ),
+      // Change template syntax to Smarty-like (not recommended)
+      'lexerOptions' => array(
+          'tag_comment'  => array('{*', '*}'),
+          'tag_block'    => array('{', '}'),
+          'tag_variable' => array('{$', '}')
+      ),
+  ),
+```
+
+####Via Composer
+
+* Get [Composer](http://getcomposer.org/)
+* Create file protected/composer.json if absent:
+
+```json
+{
+  "repositories":[
+      {
+          "type":"package",
+          "package":{
+              "name":"yiiext/twig-renderer",
+              "version":"1.1.4",
+              "source":{
+                  "type":"git",
+                  "url":"https://github.com/yiiext/twig-renderer",
+                  "reference":"v1.1.4"
+              }
+          }
+      }
+  ],
+  "require":{
+      "php":">=5.3.0",
+      "yiisoft/yii": "dev-master",
+      "twig/twig": "1.*",
+      "yiiext/twig-renderer":"1.1.*"
+  }
+}
+```
+
+* Run `composer update` in protected.
+* Add the following to your config file 'components' section:
+
+```php
+<?php
+
+  'viewRenderer' => array(
+      'class' => 'application.vendor.yiiext.twig-renderer.ETwigViewRenderer',
+      'twigPathAlias' => 'application.vendor.twig.twig.lib.Twig',
+
+      // All parameters below are optional, change them to your needs
+      'fileExtension' => '.twig',
+      'options' => array(
+          'autoescape' => true,
+      ),
+      'extensions' => array(
+          'My_Twig_Extension',
+      ),
+      'globals' => array(
+          'html' => 'CHtml'
+      ),
+      'functions' => array(
+          'rot13' => 'str_rot13',
+      ),
+      'filters' => array(
+          'jencode' => 'CJSON::encode',
+      ),
+      // Change template syntax to Smarty-like (not recommended)
+      'lexerOptions' => array(
+          'tag_comment'  => array('{*', '*}'),
+          'tag_block'    => array('{', '}'),
+          'tag_variable' => array('{$', '}')
+      ),
+  ),
 ```
 
 ###Usage

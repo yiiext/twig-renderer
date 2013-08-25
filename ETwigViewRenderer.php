@@ -64,7 +64,7 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
 
     private $_twig;
     private $_basePath;
-    private $_basePathLength;
+    private $_paths;
 
     function init()
     {
@@ -76,16 +76,17 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
         /** @var $theme CTheme */
         $theme = $app->getTheme();
 
-        if ($theme === null) {
-            $this->_basePath = $app->getBasePath();
-        } else {
-            $this->_basePath = $theme->getBasePath();
+        $this->_paths = array();
+
+        $theme = $app->getTheme();
+        if ($theme !== null) {
+            $this->_paths[] = $theme->getBasePath();
         }
 
-        // Need for extracting basePath from template path
-        $this->_basePathLength = strlen($this->_basePath);
+        $this->_paths[] = $app->getBasePath();
 
-        $loader = new Twig_Loader_Filesystem($this->_basePath);
+        $loader = new Twig_Loader_Filesystem($this->_paths);
+
         $defaultOptions = array(
             'autoescape' => false, // false because other way Twig escapes all HTML in templates
             'auto_reload' => true,
@@ -142,7 +143,12 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
         // current controller properties will be accessible as {{ this.property }}
         $data['this'] = $context;
 
-        $sourceFile = substr($sourceFile, $this->_basePathLength);
+        foreach($this->_paths as $path) {
+            if(strpos($sourceFile, $path) === 0) {
+                $sourceFile = substr($sourceFile, strlen($path));
+                break;
+            }
+        }
         $template = $this->_twig->loadTemplate($sourceFile)->render($data);
 
         if ($return) {

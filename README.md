@@ -26,9 +26,6 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
   'viewRenderer' => array(
       'class' => 'ext.ETwigViewRenderer',
 
-      // Uncomment the following line if twig installed via Composer
-      //'twigPathAlias' => 'application.vendor.twig.twig.lib.Twig',
-
       // All parameters below are optional, change them to your needs
       'fileExtension' => '.twig',
       'options' => array(
@@ -85,7 +82,7 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
 }
 ```
 
-* Run `composer update` in protected.
+* Run `composer update` in the protected folder of your app.
 * Add the following to your config file 'components' section:
 
 ```php

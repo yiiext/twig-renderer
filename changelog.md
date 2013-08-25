@@ -1,3 +1,9 @@
+1.1.4
+-----
+
+- #4: Fixed a little bug with themes (ssidelnikov)
+- Added instructions on installation of the extension via Composer (ssidelnikov)
+
 1.1.3
 -----
 

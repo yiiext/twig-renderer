@@ -1,3 +1,10 @@
+1.1.14
+-----
+
+- #4: Fixed a little bug with themes (ssidelnikov)
+- Added instructions on installation of the extension via Composer (ssidelnikov)
+- Version is 1.1.14 since the last tag in the repo is 1.1.13
+
 1.1.3
 -----
 

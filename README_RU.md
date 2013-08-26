@@ -13,41 +13,108 @@
 * Yii 1.0 и выше
 
 ###Установка
+####Установка вручную
 * Распаковать в `protected/extensions`.
 * [Скачать](http://twig.sensiolabs.org/installation) и распаковать все файлы
-  Twig из `fabpot-Twig-______.zip\fabpot-Twig-______\lib\Twig\` в `protected/vendors/Twig`.
+Twig из `fabpot-Twig-______.zip\fabpot-Twig-______\lib\Twig\` в `protected/vendors/Twig`.
 * Добавить следующее в файл конфигурации в секцию 'components':
 
 ```php
 <?php
 
-    'viewRenderer' => array(
-        'class' => 'ext.ETwigViewRenderer',
+  'viewRenderer' => array(
+      'class' => 'ext.ETwigViewRenderer',
 
-        // Все параметры ниже являются необязательными
-        'fileExtension' => '.twig',
-        'options' => array(
-            'autoescape' => true,
-        ),
-        'extensions' => array(
-            'My_Twig_Extension',
-        ),
-        'globals' => array(
-            'html' => 'CHtml'
-        ),
-        'functions' => array(
-            'rot13' => 'str_rot13',
-        ),
-        'filters' => array(
-            'jencode' => 'CJSON::encode',
-        ),
-        // Пример изменения синтаксиса на Smarty-подобный (не рекомендуется использовать)
-        'lexerOptions' => array(
-            'tag_comment'  => array('{*', '*}'),
-            'tag_block'    => array('{', '}'),
-            'tag_variable' => array('{$', '}')
-        ),
-    ),
+      // Все параметры ниже являются необязательными
+      'fileExtension' => '.twig',
+      'options' => array(
+          'autoescape' => true,
+      ),
+      'extensions' => array(
+          'My_Twig_Extension',
+      ),
+      'globals' => array(
+          'html' => 'CHtml'
+      ),
+      'functions' => array(
+          'rot13' => 'str_rot13',
+      ),
+      'filters' => array(
+          'jencode' => 'CJSON::encode',
+      ),
+      // Пример изменения синтаксиса на Smarty-подобный (не рекомендуется использовать)
+      'lexerOptions' => array(
+          'tag_comment'  => array('{*', '*}'),
+          'tag_block'    => array('{', '}'),
+          'tag_variable' => array('{$', '}')
+      ),
+  ),
+```
+
+####Установка через Composer
+
+* Установить [Composer](http://getcomposer.org/).
+* Создать файл protected/composer.json, если он отсутствует:
+
+```json
+{
+  "repositories":[
+      {
+          "type":"package",
+          "package":{
+              "name":"yiiext/twig-renderer",
+              "version":"1.1.4",
+              "source":{
+                  "type":"git",
+                  "url":"https://github.com/yiiext/twig-renderer",
+                  "reference":"v1.1.4"
+              }
+          }
+      }
+  ],
+  "require":{
+      "php":">=5.3.0",
+      "yiisoft/yii": "dev-master",
+      "twig/twig": "1.*",
+      "yiiext/twig-renderer":"1.1.*"
+  }
+}
+```
+
+* Выполнить команду `composer update`.
+* Добавить следующее в файл конфигурации в секцию 'components':
+
+```php
+<?php
+
+  'viewRenderer' => array(
+      'class' => 'application.vendor.yiiext.twig-renderer.ETwigViewRenderer',
+      'twigPathAlias' => 'application.vendor.twig.twig.lib.Twig',
+
+      // Все параметры ниже являются необязательными
+      'fileExtension' => '.twig',
+      'options' => array(
+          'autoescape' => true,
+      ),
+      'extensions' => array(
+          'My_Twig_Extension',
+      ),
+      'globals' => array(
+          'html' => 'CHtml'
+      ),
+      'functions' => array(
+          'rot13' => 'str_rot13',
+      ),
+      'filters' => array(
+          'jencode' => 'CJSON::encode',
+      ),
+      // Пример изменения синтаксиса на Smarty-подобный (не рекомендуется использовать)
+      'lexerOptions' => array(
+          'tag_comment'  => array('{*', '*}'),
+          'tag_block'    => array('{', '}'),
+          'tag_variable' => array('{$', '}')
+      ),
+  ),
 ```
 
 ###Использование

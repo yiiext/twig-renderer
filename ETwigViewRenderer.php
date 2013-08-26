@@ -7,7 +7,7 @@
  * @link http://github.com/yiiext/twig-renderer
  * @link http://twig.sensiolabs.org
  *
- * @version 1.1.2
+ * @version 1.1.14
  */
 class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
 {

@@ -77,7 +77,6 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
 
         $this->_paths = array();
 
-        $theme = $app->getTheme();
         if ($theme !== null) {
             $this->_paths[] = $theme->getBasePath();
         }

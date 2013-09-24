@@ -16,7 +16,7 @@
 ####Установка вручную
 * Распаковать в `protected/extensions`.
 * [Скачать](http://twig.sensiolabs.org/installation) и распаковать все файлы
-Twig из `fabpot-Twig-______.zip\fabpot-Twig-______\lib\Twig\` в `protected/vendors/Twig`.
+Twig из `fabpot-Twig-______.zip\fabpot-Twig-______\lib\Twig\` в `protected/vendor/Twig`.
 * Добавить следующее в файл конфигурации в секцию 'components':
 
 ```php

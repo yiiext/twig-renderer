@@ -1,3 +1,8 @@
+1.1.15
+------
+
+- Changed default `twigPathAlias` value to `application.vendor.Twig` to match Yii application template (samdark)
+
 1.1.14
 ------
 

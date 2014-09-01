@@ -63,11 +63,11 @@ Twig из `fabpot-Twig-______.zip\fabpot-Twig-______\lib\Twig\` в `protected/ve
           "type":"package",
           "package":{
               "name":"yiiext/twig-renderer",
-              "version":"1.1.4",
+              "version":"1.1.15",
               "source":{
                   "type":"git",
                   "url":"https://github.com/yiiext/twig-renderer",
-                  "reference":"v1.1.4"
+                  "reference":"v1.1.15"
               }
           }
       }

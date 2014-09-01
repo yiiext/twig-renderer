@@ -64,11 +64,11 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
           "type":"package",
           "package":{
               "name":"yiiext/twig-renderer",
-              "version":"1.1.4",
+              "version":"1.1.15",
               "source":{
                   "type":"git",
                   "url":"https://github.com/yiiext/twig-renderer",
-                  "reference":"v1.1.4"
+                  "reference":"v1.1.15"
               }
           }
       }

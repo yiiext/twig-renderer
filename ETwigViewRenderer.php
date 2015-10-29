@@ -67,7 +67,7 @@ class ETwigViewRenderer extends CApplicationComponent implements IViewRenderer
 
     function init()
     {
-        require Yii::getPathOfAlias($this->twigPathAlias).'/Autoloader.php';
+        require_once Yii::getPathOfAlias($this->twigPathAlias).'/Autoloader.php';
         Yii::registerAutoloader(array('Twig_Autoloader', 'autoload'), true);
 
         $app = Yii::app();

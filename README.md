@@ -17,7 +17,7 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
 ####Installing manually
 
 * Extract the release file under `vendor/Twig`.
-* [Download](http://twig.sensiolabs.org/installation) and extract all Twig files from `fabpot-Twig-______.zip\fabpot-Twig-______\lib\Twig\` under `protected/vendor/Twig`.
+* [Download](http://twig.sensiolabs.org/doc/installation.html#installing-from-the-tarball-release) and extract all Twig files from `fabpot-Twig-______.zip\fabpot-Twig-______\lib\Twig\` under `protected/vendor/Twig`.
 * Add the following to your config file 'components' section:
 
 ```php

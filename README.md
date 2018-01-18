@@ -1,20 +1,19 @@
-Twig view renderer
-==================
+# Twig view renderer
 
 This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in Yii.
 
-###Resources
+## Resources
 * [This extension](https://github.com/yiiext/twig-renderer)
 * [Twig](https://github.com/fabpot/twig)
 * [Discuss](http://www.yiiframework.com/forum/index.php?/topic/4919-twig-view-renderer/)
 * [Report a bug](https://github.com/yiiext/twig-renderer/issues)
 
-###Requirements
+## Requirements
 * Yii 1.0 or above
 
-###Installation
+## Installation
 
-####Installing manually
+#### Installing manually
 
 * Extract the release file under `vendor/Twig`.
 * [Download](http://twig.sensiolabs.org/doc/installation.html#installing-from-the-tarball-release) and extract all Twig files from `fabpot-Twig-______.zip\fabpot-Twig-______\lib\Twig\` under `protected/vendor/Twig`.
@@ -52,7 +51,7 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
   ),
 ```
 
-####Installing via Composer
+#### Installing via Composer
 
 * Get [Composer](http://getcomposer.org/)
 * Create file protected/composer.json if absent:
@@ -118,14 +117,14 @@ This extension allows you to use [Twig](http://twig.sensiolabs.org) templates in
   ),
 ```
 
-###Usage
+### Usage
 * See [Twig syntax](http://twig.sensiolabs.org/doc/templates.html).
 * Current controller properties are accessible via {{this.pageTitle}}.
 * Yii::app() object is accessible via {{App}}.
 * Yii's core static classes (for example, CHtml) are accessible via {{C.ClassNameWithoutFirstC.Method}} (example: {{C.Html.textField(name,'value')}})
 * To call functions or methods which return non-string result wrap these calls with 'void' function: {{void(App.clientScript.registerScriptFile(...))}}
 
-###Widgets usage example
+### Widgets usage example
 ```html
 <div id="mainmenu">
     {{ this.widget('zii.widgets.CMenu',{
